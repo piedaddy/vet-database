@@ -1,3 +1,4 @@
+<h1>Add a new visit</h1>
 <form action="{{action('VisitController@create')}}" method="post">
   <label for="">Date of Visit</label>
     <input type="date" name="date">
@@ -6,7 +7,7 @@
     {{-- <input type="text" name="owner_id"> --}}
     <select id="owner_name" name="owner_name">
         @foreach($owners as $owner)
-          <option value="{{$owner->name}}">{{$owner->name}}</option>
+          <option value="{{$owner->surname}}">{{$owner->surname}}</option>
         @endforeach
     </select>
 

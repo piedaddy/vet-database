@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pet;
 use App\Owner;
+use App\Visit;
 
 
 
@@ -19,8 +20,9 @@ class PetController extends Controller
 
     public function show($id)
     {
+        $visit = Visit::all();
         $pet = Pet::findOrFail($id);
-        return view('pets.show', compact('pet', 'id'));
+        return view('pets.show', compact('pet', 'id', 'visit'));
     }
 
     public function search(Request $request) 
@@ -44,7 +46,6 @@ class PetController extends Controller
             'breed' => 'required',
             'age' => 'required',
             'owner_id' => 'required',
-
 
         ]);
 

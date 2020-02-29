@@ -26,11 +26,13 @@ Route::delete('/pets/{id}', 'PetController@delete');
 //for the form
 Route::get('/pets/visits', 'VisitController@index');
 //for the submit
-Route::post('/pets/vists', 'VisitController@create');
+Route::post('/pets/visits', 'VisitController@create');
 
 
 
 
 Route::get('/owners', 'OwnerController@index');
+Route::get('/owner/{id}', 'OwnerController@show');
+
 
 

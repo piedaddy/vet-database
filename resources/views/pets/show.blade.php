@@ -11,6 +11,13 @@
  </p>
  <p>Owner Name: {{$pet->owner->first_name}} {{$pet->owner->surname}}</p>
  <p>Owner ID: {{$pet->owner_id}} </p>
+ <p>Visit History:</p>
+ {{-- <p>Visit Date:{{$visit->date}}</p>
+ <p>Visit Report:{{$visit->report}}</p> --}}
+ <a href="{{action('VisitController@index')}}">Add New Visit</td>
+
+
+
  <nav>
   <a href="{{action('PetController@index')}}">Go to main patient list</a>
 </nav>

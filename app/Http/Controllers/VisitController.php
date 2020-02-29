@@ -23,10 +23,9 @@ class VisitController extends Controller
     }
 
 
-    public function create(Request $request)
+    public function create(Request $request, $id)
     {
-        $visit = new Visit;
-        $visit->date = $request->input('date');
+        
  
         $pet_name=$request->input('owner_name');
         $pets = Pet::where('pet_name', 'like', $pet_name); 
@@ -34,9 +33,12 @@ class VisitController extends Controller
         $owner_name=$request->input('owner_name');
         $owners = Owner::where('owner_name', 'like', $owner_name); 
 
+        $visit = Visit::findOrFail($id);
+        $visit->date = $request->input('date');
         $visit->owner_name = $request->input('owner_name');
         $visit->pet_name = $request->input('pet_name');
         $visit->report = $request->input('report');
+        $visit->save();
 
         return view('visits.create', compact('visit','pets', 'owners', 'id'));
         return redirect()->action('PetController@index');

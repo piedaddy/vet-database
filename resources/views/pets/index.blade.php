@@ -1,5 +1,6 @@
+<h1>Pet Directory</h1>
 <div>
-
+<h3>Seach for pet</h3>
   <form action="{{action('PetController@search')}}" method="post">
     @csrf 
     <input type="text" id="search" name="search">
@@ -21,7 +22,7 @@
     <p>Owner Name: {{$pet->owner->first_name}} {{$pet->owner->surname}}</p>
     <p>Owner ID: {{$pet->owner_id}} </p>
     <nav>
-      <a href="{{action('PetController@show', ['id'=>$pet->id])}}">Go to specific page</a>
+      <a href="{{action('PetController@show', ['id'=>$pet->id])}}">Go to pet page</a>
     </nav>
 
   @endforeach
