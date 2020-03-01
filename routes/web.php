@@ -22,6 +22,10 @@ Route::get('/pets/edit/{id}', 'PetController@edit');
 Route::post('/pets/edit/{id}', 'PetController@update');
 Route::delete('/pets/{id}', 'PetController@delete'); 
 
+Route::get('/pets/create', 'PetController@create');
+// Route::post('/pets/show/{id}', 'PetController@show');
+
+
 
 //for the form
 Route::get('/pets/visits', 'VisitController@index');

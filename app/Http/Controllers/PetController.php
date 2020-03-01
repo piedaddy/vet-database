@@ -32,11 +32,32 @@ class PetController extends Controller
         return view('/pets/index', compact('pets'));
     }
 
+    public function create()
+    {
+        $pet = new Pet;
+        $owners = Owner::orderBy('first_name', 'asc')->orderBy('surname', 'asc')->get();
+        return view('pets.create', compact('pet', 'owners'));
+    }
+
+    public function store(Request $request)
+    {
+        $pet = New Pet;
+        $pet->name = $request->input('name');        
+        $pet->breed = $request->input('breed');
+        $pet->age = $request->input('age');
+        $pet->weight = $request->input('weight');
+        $pet->photo = $request->input('photo');
+        $pet->owner_id = $request->input('owner_id');
+        $pet->save();
+        session()->flash('success_message', 'Success!');
+        return redirect()->action('PetController@index');
+
+    }
+
     public function edit($id)
     {
         $pet = Pet::all();
         return view('pets.edit', compact('pet','id'));
-
     }
 
     public function update(Request $request, $id)

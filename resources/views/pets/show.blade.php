@@ -1,11 +1,13 @@
 <h4>Name: {{$pet->name}}</h4>
 
-{{-- @if({{$pet->species}} )  --}}
+  @if($pet->species) 
    <p>Species:{{$pet->species}}</p>
- {{-- @endif --}}
- <p>Breed: {{$pet->breed}}</p>
- <p>Age: {{$pet->age}}</p>
- <p>Weight: {{$pet->species}}lbs</p>
+  @endif
+  <p>Breed: {{$pet->breed}}</p>
+  <p>Age: {{$pet->age}}</p>
+  @if($pet->weight) 
+    <p>Weight: {{$pet->weight}}lbs</p>
+  @endif
  <p>Photo:<br>
    <img src="/pet_images/{{$pet->photo}}" alt="{{$pet->name}}" width="200px">
  </p>
